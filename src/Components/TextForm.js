@@ -124,7 +124,7 @@ export default function TextForm(props) {
         <h2 className="mb-4">{props.heading}</h2>
         <div className="container my-3">
           <textarea
-          placeholder="Write your text here"
+            placeholder="Write your text here"
             className="form-control"
             style={{
               backgroundColor: props.mode === "dark" ? "grey" : "white",
@@ -187,28 +187,28 @@ export default function TextForm(props) {
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleCopy}
         >
           Copy Text
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleRemoveSpaces}
         >
           Remove Extra Spaces
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleSortWords}
         >
           Sort Words
         </button>
         <button
           disabled={text.length === 0}
-          className="btn btn-primary mx-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={handleShuffleWords}
         >
           Shuffle Words
@@ -238,7 +238,7 @@ export default function TextForm(props) {
           />
           <button
             disabled={text.length === 0 || findWord === ""}
-            className="btn btn-primary mx-2"
+            className="btn btn-primary mx-2 my-2"
             onClick={handleFindAndReplace}
           >
             Find and Replace
