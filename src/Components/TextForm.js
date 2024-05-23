@@ -42,7 +42,7 @@ export default function TextForm(props) {
   const handleCapitalizeEachWord = () => {
     const newText = text
       .split(" ")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(" ");
     setText(newText);
     props.showAlert(" : Capitalized Each Word!", "success");
@@ -57,7 +57,7 @@ export default function TextForm(props) {
     const newText = text
       .toLowerCase()
       .split(" ")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
     setText(newText);
     props.showAlert(" : Converted to Title Case!", "success");
@@ -65,7 +65,8 @@ export default function TextForm(props) {
 
   const countVowelsAndConsonants = (text) => {
     const vowels = text.match(/[aeiouAEIOU]/g) || [];
-    const consonants = text.match(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g) || [];
+    const consonants =
+      text.match(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g) || [];
     return { vowels: vowels.length, consonants: consonants.length };
   };
 
@@ -77,7 +78,10 @@ export default function TextForm(props) {
   const handleFindAndReplace = () => {
     const newText = text.replaceAll(findWord, replaceWord);
     setText(newText);
-    props.showAlert(` : Replaced "${findWord}" with "${replaceWord}"!`, "success");
+    props.showAlert(
+      ` : Replaced "${findWord}" with "${replaceWord}"!`,
+      "success"
+    );
   };
 
   const handleSortWords = () => {
@@ -113,10 +117,14 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container my-3" style={{ color: props.mode === "light" ? "black" : "white" }}>
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "light" ? "black" : "white" }}
+      >
         <h2 className="mb-4">{props.heading}</h2>
         <div className="container my-3">
           <textarea
+          placeholder="Write your text here"
             className="form-control"
             style={{
               backgroundColor: props.mode === "dark" ? "grey" : "white",
@@ -128,42 +136,90 @@ export default function TextForm(props) {
             rows="5"
           ></textarea>
         </div>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleUpClick}
+        >
           Convert to UPPERCASE
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleLoClick}
+        >
           Convert to lowercase
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleClearClick}
+        >
           Clear
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleAltClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleAltClick}
+        >
           AlTeRnAtE
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleCapitalizeEachWord}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleCapitalizeEachWord}
+        >
           Capitalize Each Word
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleReverseText}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleReverseText}
+        >
           Reverse Text
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleTitleCase}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-2"
+          onClick={handleTitleCase}
+        >
           Title Case
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2"
+          onClick={handleCopy}
+        >
           Copy Text
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleRemoveSpaces}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2"
+          onClick={handleRemoveSpaces}
+        >
           Remove Extra Spaces
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleSortWords}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2"
+          onClick={handleSortWords}
+        >
           Sort Words
         </button>
-        <button disabled={text.length === 0} className="btn btn-primary mx-2" onClick={handleShuffleWords}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2"
+          onClick={handleShuffleWords}
+        >
           Shuffle Words
         </button>
-        <div className="container my-3">
+        <div className="container my-3 ">
           <input
             type="text"
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "light" ? "black" : "white",
+            }}
             className="form-control"
             value={findWord}
             onChange={handleFindChange}
@@ -171,26 +227,43 @@ export default function TextForm(props) {
           />
           <input
             type="text"
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "light" ? "black" : "white",
+            }}
             className="form-control my-2"
             value={replaceWord}
             onChange={handleReplaceChange}
             placeholder="Replace With"
           />
-          <button disabled={text.length === 0 || findWord === ""} className="btn btn-primary mx-2" onClick={handleFindAndReplace}>
+          <button
+            disabled={text.length === 0 || findWord === ""}
+            className="btn btn-primary mx-2"
+            onClick={handleFindAndReplace}
+          >
             Find and Replace
           </button>
         </div>
       </div>
 
-      <div className="container my-3" style={{ color: props.mode === "light" ? "black" : "white" }}>
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "light" ? "black" : "white" }}
+      >
         <h1>Word Counter...</h1>
         <p>
-          {text.split(/\s+/).filter((element) => element.length !== 0).length} Words and {text.length} Characters
+          {text.split(/\s+/).filter((element) => element.length !== 0).length}{" "}
+          Words and {text.length} Characters
         </p>
         <p>
-          {0.08 * text.split(" ").filter((element) => element.length !== 0).length} Average Minutes to Read
+          {0.08 *
+            text.split(" ").filter((element) => element.length !== 0)
+              .length}{" "}
+          Average Minutes to Read
         </p>
-        <p>{vowels} Vowels and {consonants} Consonants</p>
+        <p>
+          {vowels} Vowels and {consonants} Consonants
+        </p>
         <p>{sentenceCount} Sentences</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter Text to Preview"}</p>

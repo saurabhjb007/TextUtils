@@ -50,23 +50,26 @@ function App() {
   return (
     <>
       <Router>
-      <Navbar
-        title="TextUtils"
-        about="About"
-        mode={mode}
-        toggleMode={toggleMode}
-        // toggle2Mode={toggle2Mode}
-      />
-      <Alert alert={alert} />
-      {/* <TextForm
+        <Navbar
+          title="TextUtils"
+          about="About"
+          mode={mode}
+          toggleMode={toggleMode}
+          // toggle2Mode={toggle2Mode}
+        />
+        <Alert alert={alert} />
+        {/* <TextForm
         heading="Enter text to Analyze"
         mode={mode}
         showAlert={showAlert}
       /> */}
-      <Routes>
-      <Route path="/about" element={<About mode={mode}/>}></Route>
-      <Route path="/" element={<TextForm mode={mode} showAlert={showAlert} />} ></Route>
-      </Routes>
+        <Routes>
+          <Route path="/about" element={<About mode={mode} />}></Route>
+          <Route
+            path="/"
+            element={<TextForm mode={mode} showAlert={showAlert} />}
+          ></Route>
+        </Routes>
       </Router>
     </>
   );
